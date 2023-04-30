@@ -40,11 +40,6 @@ jobs:
       TF_VAR_source_repository_url: https://github.com/chroodhq/${{ inputs.source_repository_name }}
       TF_VAR_environment: ${{ inputs.environment }}
       GITHUB_TOKEN: ${{ secrets.GH_TOKEN_ORGANIZATION }}
-
-    permissions:
-      id-token: write
-      contents: read
-      pull-requests: write
     
     steps:
       - name: Checkout
