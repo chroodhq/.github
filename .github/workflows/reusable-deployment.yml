@@ -3,11 +3,6 @@ name: Reusable deployment workflow
 on:
   workflow_call:
     inputs:
-      terraform_version:
-        type: string
-        description: 'The version of Terraform to use'
-        required: false
-        default: 1.4.0
       environment:
         type: string
         description: 'The environment to deploy to'
@@ -16,10 +11,11 @@ on:
         type: string
         description: 'The name of the stack to deploy'
         required: true
-      source_repository_name:
+      terraform_version:
         type: string
-        description: 'The name of the source repository'
-        required: true
+        description: 'The version of Terraform to use'
+        required: false
+        default: 1.4.0
 
 jobs:
   reusable_deployment:
@@ -33,7 +29,7 @@ jobs:
     env:
       TF_VAR_stack_name: ${{ inputs.stack_name }}
       TF_VAR_allowed_account_id: ${{ secrets.AWS_ALLOWED_ACCOUNT_ID }}
-      TF_VAR_source_repository_url: https://github.com/chroodhq/${{ inputs.source_repository_name }}
+      TF_VAR_source_repository_url: https://github.com/${{ github.repository }}
       TF_VAR_environment: ${{ inputs.environment }}
       GITHUB_TOKEN: ${{ secrets.GH_TOKEN_ORGANIZATION }}
     
