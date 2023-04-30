@@ -20,10 +20,6 @@ on:
         type: string
         description: 'The name of the source repository'
         required: true
-      cors_allowed_origin:
-        type: string
-        description: 'The allowed origin for CORS'
-        required: false
 
 jobs:
   reusable_deployment:
@@ -47,8 +43,14 @@ jobs:
       
       - name: Set optional Terraform variables
         run: |
-          if [ -n "${{ inputs.cors_allowed_origin }}" ]; then
-            echo "TF_VAR_cors_allowed_origin=${{ inputs.cors_allowed_origin }}" >> $GITHUB_ENV
+          if [[ ${{ inputs.environment }} == 'live' ]]; then
+            if [ -n "${{ secrets.CORS_ALLOWED_ORIGIN_LIVE }}" ]; then
+              echo "TF_VAR_cors_allowed_origin=${{ secrets.CORS_ALLOWED_ORIGIN_LIVE }}" >> $GITHUB_ENV
+            fi
+          else 
+            if [ -n "${{ secrets.CORS_ALLOWED_ORIGIN_TEST }}" ]; then
+              echo "TF_VAR_cors_allowed_origin=${{ secrets.CORS_ALLOWED_ORIGIN_TEST }}" >> $GITHUB_ENV
+            fi
           fi
       
       - name: Configure AWS credentials
