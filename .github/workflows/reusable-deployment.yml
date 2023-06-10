@@ -31,11 +31,23 @@ jobs:
       TF_VAR_allowed_account_id: ${{ secrets.AWS_ALLOWED_ACCOUNT_ID }}
       TF_VAR_source_repository_url: https://github.com/${{ github.repository }}
       TF_VAR_environment: ${{ inputs.environment }}
-      GITHUB_TOKEN: ${{ secrets.GH_TOKEN_ORGANIZATION }}
     
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+      
+      - name: Configure 1Password
+        uses: 1password/load-secrets-action/configure@v1
+        with:
+          service-account-token: ${{ secrets.OP_SERVICE_ACCOUNT_TOKEN }}
+      
+      - name: Load Secrets
+        id: op-secrets
+        uses: 1password/load-secrets-action@v1
+        env:
+          GITHUB_TOKEN: "op://app-cicd/GitHub Organization Token/password"
+          TF_STATE_BUCKET: "op://app-cicd/CHROOD_TF_STATE/S3 Bucket"
+          TF_STATE_LOCK_TABLE: "op://app-cicd/CHROOD_TF_STATE/DynamoDB Table"
       
       - name: Set optional Terraform variables
         run: |
@@ -72,13 +84,11 @@ jobs:
 
       - name: Terraform Format
         id: fmt
-        env:
-          COMMAND_OPTIONS: 
         run: terraform fmt -check -recursive
 
       - name: Terraform Init
         id: init
-        run: terraform init -backend-config="bucket=${{ secrets.TF_STATE_BUCKET }}" -backend-config="key=${{ inputs.stack_name }}/${{ inputs.environment }}/terraform.tfstate" -backend-config="dynamodb_table=${{ secrets.TF_STATE_LOCK_TABLE }}"
+        run: terraform init -backend-config="bucket=${{ env.TF_STATE_BUCKET }}" -backend-config="key=${{ inputs.stack_name }}/${{ inputs.environment }}/terraform.tfstate" -backend-config="dynamodb_table=${{ env.TF_STATE_LOCK_TABLE }}"
 
       - name: Terraform Validate
         id: validate
