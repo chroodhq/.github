@@ -72,15 +72,11 @@ jobs:
         with:
           terraform_version: ~> ${{ inputs.terraform_version }}
 
-      - name: Load cached package
-        id: cached-lambda-package
-        uses: actions/cache/restore@v3
+      - name: Download archived lambda package
+        id: download-lambda-package
+        uses: actions/download-artifact@v3
         with:
-          path: terraform/package
-          key: lambda-package-${{ runner.os }}-${{ hashFiles('**/poetry.lock') }}
-          restore-keys: |
-            lambda-package-${{ runner.os }}-
-            lambda-package-
+          name: lambda-package
 
       - name: Terraform Format
         id: fmt
