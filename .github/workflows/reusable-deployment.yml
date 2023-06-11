@@ -80,7 +80,11 @@ jobs:
           
       - name: Move lambda package to ./terraform
         id: move-package
-        run: mv ../lambda-package ./terraform/package
+        run: |
+          ls
+          echo "---------------------"
+          cd ..
+          ls
 
       - name: Terraform Format
         id: fmt
