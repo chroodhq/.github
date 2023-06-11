@@ -77,14 +77,7 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: lambda-package
-          
-      - name: Move lambda package to ./terraform
-        id: move-package
-        run: |
-          ls
-          echo "---------------------"
-          cd ..
-          ls
+          path: terraform/package
 
       - name: Terraform Format
         id: fmt
