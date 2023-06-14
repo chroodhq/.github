@@ -91,6 +91,7 @@ jobs:
         run: |
           unzip package.zip
           mv target/package .
+          ls
 
       - name: Terraform Format
         id: fmt
