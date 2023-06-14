@@ -84,6 +84,13 @@ jobs:
         with:
           name: lambda-package
           path: terraform/package
+      
+      - name: Unzip package artifact
+        id: unzip-artifact
+        run: |
+          apt-get install unzip
+          cd package
+          ls
 
       - name: Terraform Format
         id: fmt
