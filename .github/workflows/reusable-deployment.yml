@@ -87,7 +87,7 @@ jobs:
       
       - name: Unzip package artifact
         id: unzip-artifact
-        run: cd package && ls
+        run: 7z x package.zip
 
       - name: Terraform Format
         id: fmt
