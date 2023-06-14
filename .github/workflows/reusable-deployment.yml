@@ -87,12 +87,8 @@ jobs:
       
       - name: Unzip package artifact
         id: unzip-artifact
-        run: |
-          ls
-          echo "-----------"
-          cd package && ls && cd ..
-          echo "-----------"
-          # unzip package.zip
+        working-directory: ./terraform/package
+        run: unzip package.zip
 
       - name: Terraform Format
         id: fmt
