@@ -87,10 +87,7 @@ jobs:
       
       - name: Unzip package artifact
         id: unzip-artifact
-        run: |
-          apt-get install unzip
-          cd package
-          ls
+        run: cd package && ls
 
       - name: Terraform Format
         id: fmt
