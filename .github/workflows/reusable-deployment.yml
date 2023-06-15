@@ -86,6 +86,7 @@ jobs:
           path: terraform
       
       - name: Unzip package artifact
+        if: ${{ inputs.lambda_package_artifact_exists }}
         id: unzip-artifact
         run: |
           unzip package.zip
