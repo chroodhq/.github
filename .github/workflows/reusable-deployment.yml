@@ -83,11 +83,10 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: lambda-package
-          path: terraform/package
+          path: terraform
       
       - name: Unzip package artifact
         id: unzip-artifact
-        working-directory: ./terraform/package
         run: |
           unzip package.zip
           mv target/package .
