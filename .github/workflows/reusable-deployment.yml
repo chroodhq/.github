@@ -89,10 +89,8 @@ jobs:
         if: ${{ inputs.lambda_package_artifact_exists }}
         id: unzip-artifact
         run: |
-          ls
           unzip package.zip
           mv target/package .
-          ls
 
       - name: Terraform Format
         id: fmt
