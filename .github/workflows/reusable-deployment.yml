@@ -21,6 +21,11 @@ on:
         description: 'Whether a lambda package has been uploaded as a job artifact'
         required: false
         default: false
+      destroy:
+        type: boolean
+        description: 'Explicitly set to true if the IaC stack should be destroyed'
+        required: false
+        default: false
 
 jobs:
   reusable_deployment:
@@ -177,4 +182,9 @@ jobs:
       - name: Terraform Apply
         id: apply
         if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
-        run: terraform apply -auto-approve -no-color
+        run: |
+          if [[ ${{ inputs.destroy }} == true ]]; then
+            terraform destroy -auto-approve -no-color
+          else 
+            terraform apply -auto-approve -no-color
+          fi
