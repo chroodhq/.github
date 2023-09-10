@@ -21,6 +21,14 @@ on:
         description: 'Whether a lambda package has been uploaded as a job artifact'
         required: false
         default: false
+      lambda_package_binary_name:
+        type: string
+        required: false
+        default: target/package
+      lambda_package_zip_name:
+        type: string
+        required: false
+        default: target/package.zip
       destroy:
         type: boolean
         description: 'Explicitly set to true if the IaC stack should be destroyed'
@@ -94,8 +102,8 @@ jobs:
         if: ${{ inputs.lambda_package_artifact_exists }}
         id: unzip-artifact
         run: |
-          unzip package.zip
-          mv target/package .
+          unzip ${{ inputs.lambda_package_zip_name }}
+          mv ${{ inputs.lambda_package_binary_name }} .
 
       - name: Terraform Format
         id: fmt
