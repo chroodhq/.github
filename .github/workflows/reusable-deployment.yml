@@ -102,6 +102,7 @@ jobs:
         if: ${{ inputs.lambda_package_artifact_exists }}
         id: unzip-artifact
         run: |
+          ls
           unzip ${{ inputs.lambda_package_zip_name }}
           mv ${{ inputs.lambda_package_binary_name }} .
 
