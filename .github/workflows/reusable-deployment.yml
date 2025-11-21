@@ -52,7 +52,7 @@ jobs:
     
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
       
       - name: Configure 1Password
         uses: 1password/load-secrets-action/configure@v2
