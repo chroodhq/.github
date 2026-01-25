@@ -62,6 +62,8 @@ jobs:
       - name: Load Secrets
         id: op-secrets
         uses: 1password/load-secrets-action@v3
+        with:
+          export-env: true
         env:
           GITHUB_TOKEN: "op://app-cicd/GitHub Organization Token/password"
           TF_STATE_BUCKET: "op://app-cicd/CHROOD_TF_STATE/S3 Bucket"
