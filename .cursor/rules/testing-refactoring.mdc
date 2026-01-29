@@ -1,0 +1,8 @@
+---
+alwaysApply: true
+---
+
+- Refactor regularly to improve structure without changing behavior
+- Keep refactors small and incremental; avoid mixing large refactors with feature changes unless necessary
+- Use tests as a safety net: ensure relevant tests pass before and after refactors (see `unit-testing.mdc` and `pre-commit-checks.mdc`)
+- Prefer mechanical, behavior-preserving refactors; keep changes easy to review
