@@ -1,0 +1,8 @@
+---
+alwaysApply: true
+---
+
+- Follow SRP (Single Responsibility Principle): each function, class, or module should have one reason to change
+- Design around cohesive responsibilities; avoid “god” modules that mix unrelated concerns
+- When responsibilities diverge, split the unit along responsibility boundaries
+- Avoid flags/branches that turn one unit into multiple workflows with unrelated reasons to change
