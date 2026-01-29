@@ -1,0 +1,11 @@
+---
+alwaysApply: true
+---
+
+- Add or update unit tests when changing behavior; tests should protect expected behavior and enable safe refactoring
+- Prefer fast, deterministic unit tests with no external dependencies (no network, no real cloud services, no real databases)
+- Follow the repository’s established test layout and naming conventions; keep tests easy to find (mirror the production structure when it helps)
+- Use the project’s standard test runner and conventions for test categorization (unit/integration/e2e) when applicable
+- Mock or stub external dependencies at boundaries using the ecosystem’s standard tooling; keep test setup minimal and reusable
+- Cover happy paths, edge cases, and error handling; include input validation scenarios when relevant
+- Run the relevant unit tests locally after changes and ensure they pass (see `local-verification.mdc` and `pre-commit-checks.mdc`)
