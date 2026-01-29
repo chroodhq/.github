@@ -1,0 +1,66 @@
+---
+alwaysApply: true
+---
+
+## Commit and PR Title Naming Convention
+
+- All commit messages and PR titles must follow the internal naming pattern
+- Format: `type(ticket-id): description in lowercase`
+- Example: `feat(ENG-312): add OTA update process using aws lambda and iot core topic rule`
+
+### Structure
+
+**Pattern:** `type(TICKET-ID): brief description`
+
+**Type Options:**
+- `feat`: New feature or functionality
+- `fix`: Bug fix
+- `refactor`: Code refactoring without changing functionality (includes performance improvements and code style changes)
+- `docs`: Documentation changes
+- `test`: Adding or updating tests
+- `chore`: Maintenance tasks (dependencies, build, config)
+
+**Ticket ID:**
+- Always include the Linear/Jira ticket ID in parentheses
+- Format: `PROJECT-NUMBER` (e.g., `ENG-312`, `PROJ-123`)
+- Required for all feature work and fixes
+
+**Description:**
+- Use lowercase for the description
+- Be concise but descriptive
+- Start with a verb in imperative mood (add, update, fix, remove, etc.)
+- No period at the end
+- Focus on WHAT changed, not HOW
+
+### Examples
+
+✅ **Good:**
+- `feat(ENG-312): add OTA update process using aws lambda and iot core topic rule`
+- `fix(ENG-405): resolve race condition in mqtt reconnection handler`
+- `refactor(ENG-201): extract device health validation to separate module`
+- `docs(ENG-156): update api documentation for firmware endpoints`
+- `test(ENG-312): add integration tests for ota firmware version comparison`
+
+❌ **Bad:**
+- `Add OTA updates` (missing type and ticket)
+- `feat: Add OTA updates` (missing ticket ID)
+- `feat(ENG-312): Added OTA updates.` (uppercase, past tense, period)
+- `WIP: working on OTA` (not descriptive, no ticket)
+- `fix bugs` (not descriptive, no ticket)
+
+### PR Title Additional Requirements
+
+- PR title should match the primary commit or describe the overall change
+- Keep it concise (under 72 characters when possible)
+- PR description should elaborate on:
+  - What problem this solves
+  - Why this change is needed
+  - What the solution does
+  - Any breaking changes or migration notes
+  - Testing approach (include a **Test plan**; see `pr-test-plan.mdc`)
+
+### Enforcement
+
+- This convention must be followed by both humans and AI agents
+- CI/CD may enforce this pattern in the future
+- Reviewers should reject PRs/commits that don't follow the convention
