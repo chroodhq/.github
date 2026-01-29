@@ -1,0 +1,8 @@
+---
+alwaysApply: true
+---
+
+- Use comments sparingly and only when they add durable value
+- Comments should explain **why** (intent, constraints, trade-offs, non-obvious decisions), not **what** the code is doing
+- Follow `inline-comments.mdc` for code comment policy; prefer durable documentation (`docs/`, root `README.md`, ADRs/issues) and link to rationale/context
+- Keep comments accurate and maintained; delete outdated comments and avoid commented-out code
