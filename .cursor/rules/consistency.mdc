@@ -1,0 +1,8 @@
+---
+alwaysApply: true
+---
+
+- Be consistent: follow established formatting, naming conventions, and coding style across the codebase
+- Keep APIs and naming uniform (similar concepts should look and behave similarly)
+- Avoid mixing paradigms for the same problem; pick the dominant project approach and apply it consistently
+- When adding new code, align file layout, structure, and organization with nearby/related modules
