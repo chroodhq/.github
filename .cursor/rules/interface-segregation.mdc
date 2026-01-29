@@ -1,0 +1,8 @@
+---
+alwaysApply: true
+---
+
+- Follow Interface Segregation: prefer small, focused interfaces over large “do-everything” ones
+- Don’t force callers to depend on methods/fields they don’t use; split broad interfaces by role/use case
+- Prefer narrow inputs and outputs; pass only the capabilities a component needs
+- If a component needs only part of another component, depend on a smaller interface rather than the full concrete type
