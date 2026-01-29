@@ -1,0 +1,8 @@
+---
+alwaysApply: true
+---
+
+- Verify changes locally before asking for review or merging
+- After substantive changes, run the repository’s relevant checks using existing project commands (see `pre-commit-checks.mdc`)
+- Ensure the relevant test suite passes (at minimum: fast unit tests; add integration/e2e runs when changes touch boundaries or critical flows)
+- If local verification is not possible, state this explicitly in the PR (what was not run and why) and provide an alternative verification approach
