@@ -1,0 +1,8 @@
+---
+alwaysApply: true
+---
+
+- Follow Open/Closed: prefer extending behavior over modifying stable, existing code
+- When multiple real variants exist (or a new variant is being added), introduce extension points that allow adding behavior with minimal changes to existing call sites
+- Prefer extension mechanisms (strategies/adapters/plugins) over scattering conditionals across the codebase
+- Keep contracts stable; when you must change behavior, make changes localized and backwards-compatible when possible
