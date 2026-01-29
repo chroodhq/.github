@@ -1,0 +1,12 @@
+---
+alwaysApply: true
+---
+
+- Use meaningful naming: choose descriptive names that convey intent and domain meaning
+- Avoid cryptic identifiers and abbreviations (e.g. `x`, `tmp`, `temp`, `cfg`, `mgr`) unless they are truly standard in this codebase
+- Prefer clarity over brevity; a slightly longer name is fine if it prevents ambiguity
+- Name things by what they represent, not how they’re implemented
+- Use consistent naming patterns:
+  - booleans read like predicates (`is_`, `has_`, `can_`, `should_`)
+  - collections are plural; single items are singular
+  - functions are verbs; types/classes/modules are nouns
