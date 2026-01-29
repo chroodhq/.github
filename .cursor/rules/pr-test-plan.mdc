@@ -1,0 +1,10 @@
+---
+alwaysApply: true
+---
+
+- Every PR must include a clear **Test plan** section
+- The test plan should state:
+  - what automated checks/tests were run locally (commands or task runner targets)
+  - what manual verification was performed (scenarios, inputs, environments)
+  - what was not tested (if anything) and why
+- Prefer concise, copy/pastable commands and a short checklist of scenarios
