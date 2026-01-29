@@ -1,0 +1,8 @@
+---
+alwaysApply: true
+---
+
+- Follow Separation of Concerns: divide code into distinct components, each handling a specific aspect of functionality
+- Separate I/O and side effects from core logic so behavior is easier to test
+- Keep orchestration (workflow) separate from implementation details (domain logic, persistence, integrations)
+- Prefer composition between focused modules over entangling responsibilities in one place
