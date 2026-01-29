@@ -1,0 +1,7 @@
+---
+alwaysApply: true
+---
+
+- Keep functions and methods short and focused; aim for ~20 lines or less when practical
+- Long functions are a smell: extract helpers to improve testability, readability, and debugging
+- If a function must be long, make its structure obvious (clear phases with well-named helper calls) and keep side effects localized
