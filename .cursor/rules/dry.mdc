@@ -1,0 +1,10 @@
+---
+alwaysApply: true
+---
+
+- Be DRY: do not duplicate logic, patterns, or data structures
+- Before making changes, scan the existing codebase to find related implementations, helpers, modules, variables, and conventions
+- Prefer reusing existing functions, classes, modules, variables, and abstractions over creating new ones
+- If an existing implementation is close but not quite right, refactor/generalize it so it supports both the current and the new use case (without breaking existing behavior)
+- Avoid copy/paste modifications that create near-duplicates; consolidate shared logic in a single place and route callers through it
+- When introducing something new (new helper/module/variable), ensure it is truly novel in this repo and not a duplicate of an existing concept
