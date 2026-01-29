@@ -1,0 +1,31 @@
+---
+alwaysApply: true
+---
+
+- Minimize duplicate code and avoid copy/paste near-duplicates (see `dry.mdc`)
+- Duplicate code detection is recommended as part of the pre-commit workflow (see `pre-commit-checks.mdc`)
+- Use the project’s duplication tooling when available; otherwise review for repeated patterns during code review
+- Acceptable duplication threshold:
+  - Small utility functions (< 5 lines) may be duplicated if context-specific
+  - Test setup/teardown code may have some duplication for clarity
+  - Configuration constants may appear in multiple places
+- When duplication is detected:
+  - Extract common logic into shared functions or classes
+  - Create helper utilities for repeated patterns
+  - Prefer shared helpers and composition over copying blocks of logic
+  - If duplication is intentional, document the rationale in durable docs (e.g. `docs/`), an issue, or the PR description (avoid inline code comments)
+- Common patterns to refactor:
+  - Similar validation logic → extract to validators module
+  - Repeated API calls → create service layer
+  - Duplicate error handling → consolidate in a shared helper or wrapper
+  - Similar data transformations → extract to utility functions
+  - Repeated test setup → use fixtures or factory functions
+- Benefits of duplicate code detection:
+  - Reduces maintenance burden (fix once instead of multiple places)
+  - Improves consistency across codebase
+  - Easier to understand and modify behavior
+  - Reduces risk of inconsistent bug fixes
+  - Smaller codebase with better test coverage
+- This check applies to both AI-generated and human-written code
+- If significant duplication is found, refactor before committing/merging
+- Consider adding this check to CI/CD for automated enforcement when the project/tooling supports it
