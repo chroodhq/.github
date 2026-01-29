@@ -1,0 +1,17 @@
+---
+alwaysApply: true
+---
+
+- Before committing changes, run the project’s local quality checks (use the existing repo commands: `make`, task runner, `npm run`, `just`, etc.)
+- Run checks in this order (fast feedback, minimal churn):
+  1. **Format / auto-fix** (including import sorting when applicable)
+  2. **Type checking / static analysis** (when the language supports it)
+  3. **Linting** (style + correctness)
+  4. **Unit tests** (and other fast, deterministic tests)
+  5. **Duplicate code detection** (optional but recommended; see `duplicate-code-detection.mdc`)
+- Format, type checks, linting, and tests (when present) must pass before committing
+- If any check fails:
+  - Fix the issues
+  - Re-run the checks to ensure no new issues were introduced
+  - Only commit when the checks pass
+- CI runs the same checks; running them locally prevents avoidable CI failures
