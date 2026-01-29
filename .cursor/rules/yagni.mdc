@@ -1,0 +1,9 @@
+---
+alwaysApply: true
+---
+
+- Follow YAGNI: implement functionality only when it’s actually needed
+- Avoid speculative features and “just in case” extensibility
+- Avoid premature optimization; optimize only when there is evidence (measured bottleneck, real constraint, or clear requirement)
+- Prefer incremental delivery: ship the minimal useful change, then iterate based on real usage
+- When designing APIs, support current use cases cleanly; generalize only when multiple real call sites demand it
