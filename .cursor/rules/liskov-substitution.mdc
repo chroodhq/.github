@@ -1,0 +1,8 @@
+---
+alwaysApply: true
+---
+
+- Follow Liskov Substitution: any subtype/implementation must be safely usable wherever the base type/interface is expected
+- Preserve contracts: do not strengthen preconditions or weaken postconditions in specialized implementations
+- Maintain invariants and expected semantics (side effects, error behavior, return shape) across implementations
+- If an implementation cannot honor the contract, split the abstraction or create a more specific interface/type
