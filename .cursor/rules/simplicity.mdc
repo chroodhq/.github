@@ -1,0 +1,9 @@
+---
+alwaysApply: true
+---
+
+- Follow KISS: favor simple, straightforward solutions over complex ones
+- Prefer the smallest change that solves the problem correctly
+- Minimize moving parts: fewer layers, fewer indirections, fewer configuration knobs
+- Choose boring, well-understood patterns over cleverness when both are correct
+- Optimize for maintainability first; only add complexity when it clearly pays for itself
