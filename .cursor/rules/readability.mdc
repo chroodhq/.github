@@ -1,0 +1,7 @@
+---
+alwaysApply: true
+---
+
+- Optimize for readability: code should be understandable on first read
+- Keep control flow simple: minimize nesting, prefer early returns/guards, and make happy-path code obvious
+- Favor explicit structure so the code’s intent is obvious (imports, organization, and layout should be easy to scan)
