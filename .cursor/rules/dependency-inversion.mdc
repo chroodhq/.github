@@ -1,0 +1,8 @@
+---
+alwaysApply: true
+---
+
+- Follow Dependency Inversion: high-level policy should not depend directly on low-level details
+- Depend on abstractions (interfaces/contracts) at boundaries when it adds value (multiple implementations, testability, or clear seams); avoid abstracting everything prematurely
+- Inject dependencies instead of constructing them deep inside business logic (factories/composition root own wiring)
+- Avoid hidden global dependencies; make required collaborators explicit in function/module APIs
