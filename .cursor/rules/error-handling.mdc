@@ -1,0 +1,10 @@
+---
+alwaysApply: true
+---
+
+- Use proper error handling: anticipate failure modes and handle them deliberately
+- Prefer exceptions over error codes when the language/ecosystem supports it; don’t encode failure in magic return values
+- Fail fast on invalid inputs (validate early) and surface actionable error messages
+- Add context when propagating errors (what operation failed, key identifiers), but avoid leaking secrets
+- Don’t swallow errors silently; handle, log, or rethrow as appropriate
+- Use graceful degradation when possible; avoid hard crashes for recoverable errors
