@@ -95,7 +95,7 @@ jobs:
       - name: Download archived lambda package
         if: ${{ inputs.lambda_package_artifact_exists }}
         id: download-lambda-package
-        uses: actions/download-artifact@v7
+        uses: actions/download-artifact@v8
         with:
           name: lambda-package
           path: terraform
