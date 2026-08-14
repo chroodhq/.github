@@ -1,0 +1,1 @@
+Read the Linear issue, its project, and related tickets. Diff the description against the current codebase. Close only the gaps that would make a cloud agent guess wrong—ask me when a real decision is needed, otherwise recommend once and proceed. Update the issue description in Linear (German; keep what still holds).
