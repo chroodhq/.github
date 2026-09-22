@@ -1,6 +1,0 @@
----
-alwaysApply: true
----
-
-- Never add inline comments to source or test files
-- Before adding comments consider improving function, class or file naming
